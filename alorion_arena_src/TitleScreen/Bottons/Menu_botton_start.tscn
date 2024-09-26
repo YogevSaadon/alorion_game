@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/TitleScreen/Bottons/Menu_botton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Lvls/test level.tscn" type="PackedScene" id=2]
+
+[node name="start" instance=ExtResource( 1 )]
+scene_to_load = ExtResource( 2 )
+
+[node name="Label" parent="." index="0"]
+text = "start"

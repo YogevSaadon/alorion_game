@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Actors/Actor.gd" type="Script" id=1]
+[ext_resource path="res://assets/Human_actor/Eyes.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/Legs.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Actors/Info_bar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Human_actor/Human_Body.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[node name="Actor" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="Info_bar" parent="." instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Legs" parent="." instance=ExtResource( 3 )]
+
+[node name="MiddleSpawnPoint" type="Node2D" parent="."]
+
+[node name="RightWeaponAnchorPoint" type="Node2D" parent="MiddleSpawnPoint"]
+position = Vector2( 0, 25 )
+rotation = 1.5708
+
+[node name="LeftWeaponAnchorPoint" type="Node2D" parent="MiddleSpawnPoint"]
+position = Vector2( 0, -28 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Human_Body" type="Sprite" parent="."]
+modulate = Color( 0.917647, 0.360784, 0.937255, 1 )
+position = Vector2( -19, 19 )
+rotation = 1.5708
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 5 )
+
+[node name="Eyes" type="Sprite" parent="."]
+position = Vector2( -10, 1 )
+rotation = 1.5708
+texture = ExtResource( 2 )
